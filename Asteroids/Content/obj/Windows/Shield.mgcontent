@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/Shield.spritefont</SourceFile>
+  <SourceTime>2017-04-25T23:23:12.2241019-05:00</SourceTime>
+  <DestFile>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/bin/Windows/Shield.xnb</DestFile>
+  <DestTime>2017-04-26T15:02:58.4313602-05:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2016-03-30T01:36:08-05:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2016-03-30T01:36:08-05:00</ProcessorTime>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

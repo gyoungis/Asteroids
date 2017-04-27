@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/laserSound.wav</SourceFile>
+  <SourceTime>2017-04-26T01:03:38.8285919-05:00</SourceTime>
+  <DestFile>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/bin/Windows/laserSound.xnb</DestFile>
+  <DestTime>2017-04-26T15:03:00.0768187-05:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2016-03-30T01:36:08-05:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2016-03-30T01:36:08-05:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
