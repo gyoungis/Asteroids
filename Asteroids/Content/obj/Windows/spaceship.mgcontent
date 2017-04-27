@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/spaceship.fbx</SourceFile>
-  <SourceTime>2017-04-07T16:26:56-05:00</SourceTime>
-  <DestFile>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/bin/Windows/spaceship.xnb</DestFile>
-  <DestTime>2017-04-26T15:02:47.1013968-05:00</DestTime>
+  <SourceFile>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/spaceship.fbx</SourceFile>
+  <SourceTime>2017-04-27T16:17:41.8540712-05:00</SourceTime>
+  <DestFile>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/spaceship.xnb</DestFile>
+  <DestTime>2017-04-27T16:18:07.5953488-05:00</DestTime>
   <Importer>FbxImporter</Importer>
-  <ImporterTime>2016-03-30T01:36:08-05:00</ImporterTime>
+  <ImporterTime>2017-03-01T09:05:36-06:00</ImporterTime>
   <Processor>ModelProcessor</Processor>
-  <ProcessorTime>2016-03-30T01:36:08-05:00</ProcessorTime>
+  <ProcessorTime>2017-03-01T09:05:36-06:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>0,0,0,0</Value>
@@ -66,7 +66,7 @@
   </Parameters>
   <Dependencies />
   <BuildAsset>
-    <string>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/bin/Windows/shiptex_0.xnb</string>
+    <string>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/shiptex_0.xnb</string>
   </BuildAsset>
   <BuildOutput />
 </PipelineBuildEvent>

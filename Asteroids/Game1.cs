@@ -25,6 +25,13 @@ namespace Asteroids
             public Vector3 direction;
         }
 
+        struct Rock
+        {
+            public Vector3 position;
+            public Quaternion rotation;
+            public Vector3 direction;
+            public BoundingSphere bound;
+        }
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -54,6 +61,8 @@ namespace Asteroids
         List<BoundingSphere> targetList = new List<BoundingSphere>();
         List<BoundingSphere> bigTargetList = new List<BoundingSphere>();
         private SoundEffect boom;
+
+
 
         const int maxShieldPower = 5;
         Model shieldPowerModel;
@@ -132,8 +141,11 @@ namespace Asteroids
             AddBigTargets();
             AddTargets();
             AddShieldPower();
+
             // TODO: use this.Content to load your game content here
         }
+
+
 
         private void AddTargets()
         {
@@ -145,7 +157,7 @@ namespace Asteroids
             {
                 int x = random.Next(Width);
                 int z = -random.Next(Length);
-                float y = (float)random.Next(2000) / 1000f + 1;
+                float y = (float)random.Next(6000) / 1000f + 1;
                 float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
 
                 BoundingSphere newTarget = new BoundingSphere(new Vector3(x, y, z), radius);
@@ -168,7 +180,7 @@ namespace Asteroids
                 int x = random.Next(Width);
                 int z = -random.Next(Length);
                 float y = (float)random.Next(2000) / 1000f + 1;
-                float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
+                float radius = (float)random.Next(3000) / 1000f * 0.2f + 0.01f;
 
                 BoundingSphere newBigTarget = new BoundingSphere(new Vector3(x, y, z), radius);
                 if (CheckCollision(newBigTarget) == CollisionType.None)
@@ -252,6 +264,7 @@ namespace Asteroids
             BoundingSphere shipSphere = new BoundingSphere(shipPosition, 0.04f);
             UpdateBulletPositions(moveSpeed);
 
+
             if (CheckCollision(shipSphere) == CollisionType.Target)
             {
                 if (shield > 0)
@@ -264,7 +277,7 @@ namespace Asteroids
                     shipPosition = new Vector3(8, 1, -3);
                     shipRotation = Quaternion.Identity;
                     gameSpeed /= 1.1f;
-                    score = 0;
+                    //score = 0;
                     shield = 3;
                     shipCount -= 1;
                     if (shipCount < 0)
@@ -398,10 +411,39 @@ namespace Asteroids
         {
             Vector3 addVector = Vector3.Transform(new Vector3(0, 0, -1), rotationQuat);
             position += addVector * speed;
+            Vector3 diff = position - skyPosition;
+            float dist = (float)Math.Sqrt(Vector3.Dot(diff, diff));
+            if (dist > 16)
+            {
+                position -= addVector * speed * 60;
+                if (shield > 0)
+                {
+                    shield -= 1;
+                    shieldHit.Play();
+                }
+                else
+                {
+                    shipPosition = new Vector3(8, 1, -3);
+                    shipRotation = Quaternion.Identity;
+                    gameSpeed /= 1.1f;
+                    //score = 0;
+                    shield = 3;
+                    shipCount -= 1;
+                    if (shipCount < 0)
+                    {
+                        gameOver = true;
+                    }
+                    respawn.Play();
+                }
+            }
+
         }
 
         private CollisionType CheckCollision(BoundingSphere sphere)
         {
+
+
+
             for (int i = 0; i < targetList.Count; i++)
             {
                 if (targetList[i] != null)
@@ -472,6 +514,7 @@ namespace Asteroids
                 DrawBigTargets(bigTargetModel, viewMatrix, projectionMatrix);
                 DrawShieldPower(shieldPowerModel, viewMatrix, projectionMatrix);
                 DrawBullets(bulletModel, viewMatrix, projectionMatrix);
+
                 
                 spriteBatch.DrawString(font, "Score: " + score, new Vector2(100, 100), Color.Gold);
                 spriteBatch.DrawString(shieldFont, "Shield: " + shield, new Vector2(100, 125), Color.CornflowerBlue);

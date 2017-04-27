@@ -4,24 +4,24 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/spaceship.fbx</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/shiptex.jpg</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/skybox.fbx</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/space.png</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/target.x</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/bullet.fbx</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/Score.spritefont</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/rockred.jpg</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/rock.dae</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/bigRock.jpg</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/BigRock.fbx</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/Shield.spritefont</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/laserSound.wav</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/boom.wav</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/gameOver.spritefont</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/shieldHit.wav</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/respawn.wav</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/ShieldPower.fbx</File>
-    <File>C:/Users/Gavin/documents/visual studio 2015/Projects/Asteroids/Asteroids/Content/bigRock2.fbx</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/spaceship.fbx</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/shiptex.jpg</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/skybox.fbx</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/space.png</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/target.x</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bullet.fbx</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/Score.spritefont</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/rockred.jpg</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/rock.dae</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bigRock.jpg</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/BigRock.fbx</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/Shield.spritefont</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/laserSound.wav</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/boom.wav</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/gameOver.spritefont</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/shieldHit.wav</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/respawn.wav</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/ShieldPower.fbx</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bigRock2.fbx</File>
   </SourceFiles>
 </SourceFileCollection>
