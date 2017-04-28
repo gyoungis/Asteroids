@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/skybox.fbx</SourceFile>
-  <SourceTime>2017-04-27T16:17:41.8010715-05:00</SourceTime>
-  <DestFile>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/skybox.xnb</DestFile>
-  <DestTime>2017-04-28T14:05:45.3178102-05:00</DestTime>
+  <SourceFile>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/thing.fbx</SourceFile>
+  <SourceTime>2017-04-28T16:30:08-05:00</SourceTime>
+  <DestFile>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/thing.xnb</DestFile>
+  <DestTime>2017-04-28T16:30:27.5533703-05:00</DestTime>
   <Importer>FbxImporter</Importer>
   <ImporterTime>2017-03-01T09:05:36-06:00</ImporterTime>
   <Processor>ModelProcessor</Processor>
@@ -62,11 +62,9 @@
   </Parameters>
   <Parameters>
     <Key>TextureFormat</Key>
-    <Value>DxtCompressed</Value>
+    <Value>Compressed</Value>
   </Parameters>
   <Dependencies />
-  <BuildAsset>
-    <string>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/space_0.xnb</string>
-  </BuildAsset>
+  <BuildAsset />
   <BuildOutput />
 </PipelineBuildEvent>

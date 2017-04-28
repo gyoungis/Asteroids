@@ -13,8 +13,6 @@
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/Score.spritefont</File>
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/rockred.jpg</File>
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/rock.dae</File>
-    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bigRock.jpg</File>
-    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/BigRock.fbx</File>
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/Shield.spritefont</File>
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/laserSound.wav</File>
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/boom.wav</File>
@@ -22,7 +20,10 @@
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/shieldHit.wav</File>
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/respawn.wav</File>
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/ShieldPower.fbx</File>
-    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bigRock2.fbx</File>
     <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/Spikes.fbx</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/rock2.fbx</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/BigRock2.fbx</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/BigRock.dae</File>
+    <File>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/thing.fbx</File>
   </SourceFiles>
 </SourceFileCollection>

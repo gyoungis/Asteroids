@@ -25,13 +25,13 @@ namespace Asteroids
             public Vector3 direction;
         }
 
-        struct Rock
-        {
-            public Vector3 position;
-            public Quaternion rotation;
-            public Vector3 direction;
-            public BoundingSphere bound;
-        }
+        //struct Rock
+        //{
+        //    public Vector3 position;
+        //    public Quaternion rotation;
+        //    public Vector3 direction;
+        //    public BoundingSphere bound;
+        //}
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
@@ -54,15 +54,21 @@ namespace Asteroids
 
         Quaternion cameraRotation = Quaternion.Identity;
 
-        const int maxTargets = 35;
-        const int maxBigTargets = 15;
+        const int maxTargets = 20;
+        const int maxBigTargets = 20;
         const int maxSpikes = 25;
+        const int maxRock2 = 25;
+        const int maxBigRock2 = 25;
         Model targetModel;
         Model bigTargetModel;
         Model spikeModel;
+        Model rock2Model;
+        Model bigRock2Model;
         List<BoundingSphere> targetList = new List<BoundingSphere>();
         List<BoundingSphere> bigTargetList = new List<BoundingSphere>();
         List<BoundingSphere> spikeList = new List<BoundingSphere>();
+        List<BoundingSphere> rock2List = new List<BoundingSphere>();
+        List<BoundingSphere> bigRock2List = new List<BoundingSphere>();
         private SoundEffect boom;
 
 
@@ -119,13 +125,17 @@ namespace Asteroids
 
             targetModel = Content.Load<Model>("rock");
 
-            bigTargetModel = Content.Load<Model>("bigRock2");
+            bigTargetModel = Content.Load<Model>("thing");
 
             spikeModel = Content.Load<Model>("Spikes");
 
+            rock2Model = Content.Load<Model>("rock2");
+
+            bigRock2Model = Content.Load<Model>("BigRock2");
+
             bulletModel = Content.Load<Model>("bullet");
 
-            shieldPowerModel = Content.Load<Model>("shieldPower");
+            shieldPowerModel = Content.Load<Model>("BigRock");
 
             font = Content.Load<SpriteFont>("Score");
 
@@ -145,6 +155,8 @@ namespace Asteroids
 
             AddBigTargets();
             AddTargets();
+            AddRock2();
+            AddBigRock2();
             AddShieldPower();
             AddSpikes();
             // TODO: use this.Content to load your game content here
@@ -154,8 +166,8 @@ namespace Asteroids
 
         private void AddTargets()
         {
-            int Width = 10;
-            int Length = 10;
+            int Width = 13;
+            int Length = 13;
             Random random = new Random();
 
             while (targetList.Count < maxTargets)
@@ -164,7 +176,7 @@ namespace Asteroids
                 int z = -random.Next(Length);
                 float y = (float)random.Next(9000) / 1000f + 1;
                 //float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
-                float radius = 0.2f;
+                float radius = 0.1f;
                 BoundingSphere newTarget = new BoundingSphere(new Vector3(x, y, z), radius);
                 if (CheckCollision(newTarget) == CollisionType.None)
                 {
@@ -174,23 +186,67 @@ namespace Asteroids
             }
         }
 
+        private void AddRock2()
+        {
+            int Width = 12;
+            int Length = 12;
+            Random random = new Random();
+
+            while (rock2List.Count < maxRock2)
+            {
+                int x = random.Next(Width);
+                int z = -random.Next(Length);
+                float y = (float)random.Next(9000) / 1000f + 1;
+                
+                float radius = 0.1f;
+                BoundingSphere newRock2 = new BoundingSphere(new Vector3(x, y, z), radius);
+                if (CheckCollision(newRock2) == CollisionType.None)
+                {
+                    rock2List.Add(newRock2);
+
+                }
+            }
+        }
+
         private void AddBigTargets()
         {
-            int Width = 10;
-            int Length = 10;
+            int Width = 13;
+            int Length = 13;
             Random random = new Random();
 
             while (bigTargetList.Count < maxBigTargets)
             {
                 int x = random.Next(Width);
                 int z = -random.Next(Length);
-                float y = (float)random.Next(6000) / 1000f + 1;
+                float y = (float)random.Next(10000) / 1000f + 1;
                 //float radius = (float)random.Next(3000) / 1000f * 0.2f + 0.01f;
-                float radius = 0.5f;
+                float radius = 0.2f;
                 BoundingSphere newBigTarget = new BoundingSphere(new Vector3(x, y, z), radius);
                 if (CheckCollision(newBigTarget) == CollisionType.None)
                 {
                     bigTargetList.Add(newBigTarget);
+
+                }
+            }
+        }
+
+        private void AddBigRock2()
+        {
+            int Width = 13;
+            int Length = 13;
+            Random random = new Random();
+
+            while (bigRock2List.Count < maxBigRock2)
+            {
+                int x = random.Next(Width);
+                int z = -random.Next(Length);
+                float y = (float)random.Next(10000) / 1000f + 1;
+                //float radius = (float)random.Next(3000) / 1000f * 0.2f + 0.01f;
+                float radius = 0.4f;
+                BoundingSphere newBigRock2 = new BoundingSphere(new Vector3(x, y, z), radius);
+                if (CheckCollision(newBigRock2) == CollisionType.None)
+                {
+                    bigRock2List.Add(newBigRock2);
 
                 }
             }
@@ -209,7 +265,7 @@ namespace Asteroids
                 int z = -random.Next(Length);
                 float y = (float)random.Next(7000) / 1000f + 1;
                 //float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
-                float radius = 0.2f;
+                float radius = 0.3f;
                 BoundingSphere newSpikes = new BoundingSphere(new Vector3(x, y, z), radius);
                 if (CheckCollision(newSpikes) == CollisionType.None)
                 {
@@ -229,9 +285,9 @@ namespace Asteroids
             {
                 int x = random.Next(Width);
                 int z = -random.Next(Length);
-                float y = (float)random.Next(2000) / 1000f + 1;
+                float y = (float)random.Next(8000) / 1000f + 1;
                 //float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
-                float radius = 0.3f;
+                float radius = 0.6f;
                 BoundingSphere newShieldPower = new BoundingSphere(new Vector3(x, y, z), radius);
                 if (CheckCollision(newShieldPower) == CollisionType.None)
                 {
@@ -429,7 +485,7 @@ namespace Asteroids
                 }
                 else
                 {
-                    shipPosition = new Vector3(8, 1, -3);
+                    shipPosition = new Vector3(8, 1, 3);
                     shipRotation = Quaternion.Identity;
                     gameSpeed /= 1.1f;
                     //score = 0;
@@ -465,6 +521,21 @@ namespace Asteroids
                 
             }
 
+            for (int i = 0; i < rock2List.Count; i++)
+            {
+                if (rock2List[i] != null)
+                {
+                    if (rock2List[i].Contains(sphere) != ContainmentType.Disjoint)
+                    {
+                        rock2List.RemoveAt(i);
+                        i--;
+
+                        return CollisionType.Target;
+                    }
+                }
+
+            }
+
             for (int i = 0; i < bigTargetList.Count; i++)
             {
                 int num = bigTargetList.Count;
@@ -473,6 +544,22 @@ namespace Asteroids
                     if (bigTargetList[i].Contains(sphere) != ContainmentType.Disjoint)
                     {
                         bigTargetList.RemoveAt(i);
+                        i--;
+
+                        return CollisionType.Target;
+                    }
+                }
+
+            }
+
+            for (int i = 0; i < bigRock2List.Count; i++)
+            {
+                int num = bigRock2List.Count;
+                if (bigRock2List[i] != null)
+                {
+                    if (bigRock2List[i].Contains(sphere) != ContainmentType.Disjoint)
+                    {
+                        bigRock2List.RemoveAt(i);
                         i--;
 
                         return CollisionType.Target;
@@ -506,7 +593,7 @@ namespace Asteroids
                         i--;
                         
 
-                        return CollisionType.power;
+                        return CollisionType.Target;
                     }
                 }
 
@@ -530,7 +617,9 @@ namespace Asteroids
                 DrawModel(shipModel, viewMatrix, projectionMatrix);
                 Drawsky(skyModel, viewMatrix, projectionMatrix);
                 DrawTargets(targetModel, viewMatrix, projectionMatrix);
+                DrawRock2(rock2Model, viewMatrix, projectionMatrix);
                 DrawBigTargets(bigTargetModel, viewMatrix, projectionMatrix);
+                DrawBigRock2(bigRock2Model, viewMatrix, projectionMatrix);
                 DrawSpikes(spikeModel, viewMatrix, projectionMatrix);
                 DrawShieldPower(shieldPowerModel, viewMatrix, projectionMatrix);
                 DrawBullets(bulletModel, viewMatrix, projectionMatrix);
@@ -605,6 +694,28 @@ namespace Asteroids
             }
         }
 
+        private void DrawRock2(Model model, Matrix view, Matrix projection)
+        {
+            for (int i = 0; i < rock2List.Count; i++)
+            {
+                Matrix worldMatrix = Matrix.CreateScale(rock2List[i].Radius) * Matrix.CreateTranslation(rock2List[i].Center);
+
+                Matrix[] rock2Transforms = new Matrix[rock2Model.Bones.Count];
+                rock2Model.CopyAbsoluteBoneTransformsTo(rock2Transforms);
+                foreach (ModelMesh mesh in model.Meshes)
+                {
+                    foreach (BasicEffect effect in mesh.Effects)
+                    {
+                        effect.World = worldMatrix;
+                        effect.View = view;
+                        effect.Projection = projection;
+                    }
+
+                    mesh.Draw();
+                }
+            }
+        }
+
         private void DrawBigTargets(Model model, Matrix view, Matrix projection)
         {
             int number = bigTargetList.Count;
@@ -614,6 +725,29 @@ namespace Asteroids
 
                 Matrix[] bigTargetTransforms = new Matrix[bigTargetModel.Bones.Count];
                 bigTargetModel.CopyAbsoluteBoneTransformsTo(bigTargetTransforms);
+                foreach (ModelMesh mesh in model.Meshes)
+                {
+                    foreach (BasicEffect effect in mesh.Effects)
+                    {
+                        effect.World = worldMatrix;
+                        effect.View = view;
+                        effect.Projection = projection;
+                    }
+
+                    mesh.Draw();
+                }
+            }
+        }
+
+        private void DrawBigRock2(Model model, Matrix view, Matrix projection)
+        {
+            int number = bigRock2List.Count;
+            for (int i = 0; i < bigRock2List.Count; i++)
+            {
+                Matrix worldMatrix = Matrix.CreateScale(bigRock2List[i].Radius) * Matrix.CreateTranslation(bigRock2List[i].Center);
+
+                Matrix[] bigRock2Transforms = new Matrix[bigRock2Model.Bones.Count];
+                bigRock2Model.CopyAbsoluteBoneTransformsTo(bigRock2Transforms);
                 foreach (ModelMesh mesh in model.Meshes)
                 {
                     foreach (BasicEffect effect in mesh.Effects)

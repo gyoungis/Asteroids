@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/target.x</SourceFile>
-  <SourceTime>2017-03-09T00:34:33.3540003-06:00</SourceTime>
+  <SourceTime>2017-04-27T16:17:41.8575763-05:00</SourceTime>
   <DestFile>C:/Users/Gavin/Documents/GitHub/Asteroids/Asteroids/Content/bin/Windows/target.xnb</DestFile>
-  <DestTime>2017-04-27T21:17:20.0078205-05:00</DestTime>
+  <DestTime>2017-04-28T14:05:46.0611393-05:00</DestTime>
   <Importer>OpenAssetImporter</Importer>
-  <ImporterTime>2016-03-30T01:36:08-05:00</ImporterTime>
+  <ImporterTime>2017-03-01T09:05:36-06:00</ImporterTime>
   <Processor>ModelProcessor</Processor>
-  <ProcessorTime>2016-03-30T01:36:08-05:00</ProcessorTime>
+  <ProcessorTime>2017-03-01T09:05:36-06:00</ProcessorTime>
   <Parameters>
     <Key>ColorKeyColor</Key>
     <Value>0,0,0,0</Value>

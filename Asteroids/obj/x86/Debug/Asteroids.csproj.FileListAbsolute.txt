@@ -91,7 +91,6 @@ C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpD
 C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.XInput.xml
 C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.Direct3D9.xml
 C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\obj\x86\Debug\Asteroids.csprojResolveAssemblyReference.cache
-C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\MonoGame.Framework.Net.dll
-C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.RawInput.dll
-C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\SharpDX.RawInput.xml
 C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Content\Spikes.xnb
+C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Content\rock2.xnb
+C:\Users\Gavin\Documents\GitHub\Asteroids\Asteroids\bin\Windows\x86\Debug\Content\thing.xnb
