@@ -56,10 +56,13 @@ namespace Asteroids
 
         const int maxTargets = 35;
         const int maxBigTargets = 15;
+        const int maxSpikes = 25;
         Model targetModel;
         Model bigTargetModel;
+        Model spikeModel;
         List<BoundingSphere> targetList = new List<BoundingSphere>();
         List<BoundingSphere> bigTargetList = new List<BoundingSphere>();
+        List<BoundingSphere> spikeList = new List<BoundingSphere>();
         private SoundEffect boom;
 
 
@@ -118,6 +121,8 @@ namespace Asteroids
 
             bigTargetModel = Content.Load<Model>("bigRock2");
 
+            spikeModel = Content.Load<Model>("Spikes");
+
             bulletModel = Content.Load<Model>("bullet");
 
             shieldPowerModel = Content.Load<Model>("shieldPower");
@@ -141,7 +146,7 @@ namespace Asteroids
             AddBigTargets();
             AddTargets();
             AddShieldPower();
-
+            AddSpikes();
             // TODO: use this.Content to load your game content here
         }
 
@@ -157,9 +162,9 @@ namespace Asteroids
             {
                 int x = random.Next(Width);
                 int z = -random.Next(Length);
-                float y = (float)random.Next(6000) / 1000f + 1;
-                float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
-
+                float y = (float)random.Next(9000) / 1000f + 1;
+                //float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
+                float radius = 0.2f;
                 BoundingSphere newTarget = new BoundingSphere(new Vector3(x, y, z), radius);
                 if (CheckCollision(newTarget) == CollisionType.None)
                 {
@@ -179,9 +184,9 @@ namespace Asteroids
             {
                 int x = random.Next(Width);
                 int z = -random.Next(Length);
-                float y = (float)random.Next(2000) / 1000f + 1;
-                float radius = (float)random.Next(3000) / 1000f * 0.2f + 0.01f;
-
+                float y = (float)random.Next(6000) / 1000f + 1;
+                //float radius = (float)random.Next(3000) / 1000f * 0.2f + 0.01f;
+                float radius = 0.5f;
                 BoundingSphere newBigTarget = new BoundingSphere(new Vector3(x, y, z), radius);
                 if (CheckCollision(newBigTarget) == CollisionType.None)
                 {
@@ -191,27 +196,28 @@ namespace Asteroids
             }
         }
 
-        //private void AddBigTargets()
-        //{
-        //    int Width = 15;
-        //    int Length = 15;
-        //    Random random = new Random();
 
-        //    while (bigTargetList.Count < maxBigTargets)
-        //    {
-        //        int x = random.Next(Width);
-        //        int z = -random.Next(Length);
-        //        float y = (float)random.Next(2000) / 1000f + 1;
-        //        float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
+        private void AddSpikes()
+        {
+            int Width = 15;
+            int Length = 15;
+            Random random = new Random();
 
-        //        BoundingSphere newBigTarget = new BoundingSphere(new Vector3(x, y, z), radius);
-        //        if (CheckCollision(newBigTarget) == CollisionType.None)
-        //        {
-        //            bigTargetList.Add(newBigTarget);
+            while (spikeList.Count < maxSpikes)
+            {
+                int x = random.Next(Width);
+                int z = -random.Next(Length);
+                float y = (float)random.Next(7000) / 1000f + 1;
+                //float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
+                float radius = 0.2f;
+                BoundingSphere newSpikes = new BoundingSphere(new Vector3(x, y, z), radius);
+                if (CheckCollision(newSpikes) == CollisionType.None)
+                {
+                    spikeList.Add(newSpikes);
 
-        //        }
-        //    }
-        //}
+                }
+            }
+        }
 
         private void AddShieldPower()
         {
@@ -224,8 +230,8 @@ namespace Asteroids
                 int x = random.Next(Width);
                 int z = -random.Next(Length);
                 float y = (float)random.Next(2000) / 1000f + 1;
-                float radius = (float)random.Next(500) / 1000f * 0.2f + 0.01f;
-
+                //float radius = (float)random.Next(1000) / 1000f * 0.2f + 0.01f;
+                float radius = 0.3f;
                 BoundingSphere newShieldPower = new BoundingSphere(new Vector3(x, y, z), radius);
                 if (CheckCollision(newShieldPower) == CollisionType.None)
                 {
@@ -475,7 +481,20 @@ namespace Asteroids
 
             }
 
-            
+            for (int i = 0; i < spikeList.Count; i++)
+            {
+                if (spikeList[i] != null)
+                {
+                    if (spikeList[i].Contains(sphere) != ContainmentType.Disjoint)
+                    {
+                        spikeList.RemoveAt(i);
+                        i--;
+
+                        return CollisionType.Target;
+                    }
+                }
+
+            }
 
             for (int i = 0; i < shieldPowerList.Count; i++)
             {
@@ -512,6 +531,7 @@ namespace Asteroids
                 Drawsky(skyModel, viewMatrix, projectionMatrix);
                 DrawTargets(targetModel, viewMatrix, projectionMatrix);
                 DrawBigTargets(bigTargetModel, viewMatrix, projectionMatrix);
+                DrawSpikes(spikeModel, viewMatrix, projectionMatrix);
                 DrawShieldPower(shieldPowerModel, viewMatrix, projectionMatrix);
                 DrawBullets(bulletModel, viewMatrix, projectionMatrix);
 
@@ -594,6 +614,28 @@ namespace Asteroids
 
                 Matrix[] bigTargetTransforms = new Matrix[bigTargetModel.Bones.Count];
                 bigTargetModel.CopyAbsoluteBoneTransformsTo(bigTargetTransforms);
+                foreach (ModelMesh mesh in model.Meshes)
+                {
+                    foreach (BasicEffect effect in mesh.Effects)
+                    {
+                        effect.World = worldMatrix;
+                        effect.View = view;
+                        effect.Projection = projection;
+                    }
+
+                    mesh.Draw();
+                }
+            }
+        }
+
+        private void DrawSpikes(Model model, Matrix view, Matrix projection)
+        {
+            for (int i = 0; i < spikeList.Count; i++)
+            {
+                Matrix worldMatrix = Matrix.CreateScale(spikeList[i].Radius) * Matrix.CreateTranslation(spikeList[i].Center);
+
+                Matrix[] spikeTransforms = new Matrix[spikeModel.Bones.Count];
+                spikeModel.CopyAbsoluteBoneTransformsTo(spikeTransforms);
                 foreach (ModelMesh mesh in model.Meshes)
                 {
                     foreach (BasicEffect effect in mesh.Effects)
